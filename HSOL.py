@@ -13,11 +13,13 @@ from sklearn.model_selection import train_test_split
 import string
 import pickle
 
-# Load NLTK stopwords
-nltk.download('stopwords')
-stopword = set(stopwords.words('english'))
-stemmer = nltk.SnowballStemmer("english")
+# Check if NLTK stopwords are downloaded
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
+# Continue with your existing code...
 # Define text cleaning function
 def clean_text(text):
     text = str(text).lower()
@@ -69,10 +71,10 @@ with open('model.pkl', 'wb') as model_file:
     pickle.dump((tfidf, ensemble), model_file)
 
 # Streamlit app
-st.title("Hate Speech and Offensive Language Detection")
+st.title("Twitter Sentiment Analysis")
 
-st.header("Input Comment")
-input_tweet = st.text_area("Enter the comment you want to analyze:")
+st.header("Input Tweet")
+input_tweet = st.text_area("Enter the tweet you want to analyze:")
 
 if st.button("Analyze"):
     if input_tweet:
