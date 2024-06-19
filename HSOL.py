@@ -13,11 +13,10 @@ from sklearn.model_selection import train_test_split
 import string
 import pickle
 
-# Check if NLTK stopwords are downloaded
-try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    nltk.download('stopwords')
+# Load NLTK stopwords
+nltk.download('stopwords')
+stopword = set(stopwords.words('english'))
+stemmer = nltk.SnowballStemmer("english")
 
 # Continue with your existing code...
 # Define text cleaning function
