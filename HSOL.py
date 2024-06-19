@@ -70,10 +70,10 @@ with open('model.pkl', 'wb') as model_file:
     pickle.dump((tfidf, ensemble), model_file)
 
 # Streamlit app
-st.title("Twitter Sentiment Analysis")
+st.title("Hate Speech and Offensive Language Detection")
 
-st.header("Input Tweet")
-input_tweet = st.text_area("Enter the tweet you want to analyze:")
+st.header("Input Comment")
+input_tweet = st.text_area("Enter the comment you want to analyze:")
 
 if st.button("Analyze"):
     if input_tweet:
