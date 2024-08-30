@@ -40,7 +40,7 @@ To run this application locally, follow these steps:
 
 6. Run the Streamlit application:
 
-   streamlit run app.py
+   streamlit run HSOL.py
 
 ## Usage
 
